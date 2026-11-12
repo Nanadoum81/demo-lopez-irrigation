@@ -269,107 +269,23 @@ footer p{font-size:14.5px;line-height:1.65;color:#b9cbb2}
 <script>function toggleMenu(b){var m=document.getElementById('mnav');if(!m)return;var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');b.setAttribute('aria-label',o?'Close menu':'Open menu')}</script>
 
 <section class="blk"><div class="wrap">
-  <div class="wiz" id="wizFlow">
-    <div class="wizmeta"><span id="wizMeta">Step 1 of 8 — 13%</span><span id="wizPct"></span></div>
-    <div class="progress"><i id="wizBar" style="width:13%"></i></div>
-
-    <div id="step1" class="wizcard">
-      <div class="eyebrow">Let Us Review Your Project</div>
-      <h2>Describe Your Project</h2>
-      <p class="wsub">What service do you need?</p>
-      <div class="svcgrid">
-      <button type="button" class="svcopt" onclick="selectSvc(this,'sprinkler')"><b>Sprinkler Repair</b><small>Broken heads, low pressure, valve and controller repairs.</small></button>
-      <button type="button" class="svcopt" onclick="selectSvc(this,'irrigation')"><b>Irrigation & Drip Installation</b><small>Design and install new irrigation systems for any landscape.</small></button>
-      <button type="button" class="svcopt" onclick="selectSvc(this,'leak')"><b>Leak Detection</b><small>Find and fix hidden leaks that cost you water and money.</small></button>
-      <button type="button" class="svcopt" onclick="selectSvc(this,'tree')"><b>Tree Trimming</b><small>Keep your landscape healthy and look its best.</small></button>
-      <button type="button" class="svcopt" onclick="selectSvc(this,'landscape')"><b>Landscape Maintenance</b><small>Recurring care for yards, trees, and plants.</small></button>
-      <button type="button" class="svcopt" onclick="selectSvc(this,'turf')"><b>Artificial Turf</b><small>Low-water, heat-resilient synthetic grass.</small><span class="pill" style="margin-top:8px">Pending</span></button>
-    </div>
-    </div>
-
-    <div id="step2" class="wizcard" style="display:none">
-      <h2>Project details</h2>
-      <p class="wsub">A few questions so we can scope your project accurately.</p>
-      <div id="branchHost"></div>
-    </div>
-
-    <div id="step3" class="wizcard" style="display:none">
-      <h2>Where is the property?</h2>
-      <p class="wsub">We confirm coverage for every request before scheduling.</p>
-      <div style="margin-top:20px">
-        <label class="f">ZIP code <span style="color:#b3261e">*</span><input type="text" id="zip" placeholder="e.g. 85021"></label>
-        <label class="f">City <span style="color:#b3261e">*</span><input type="text" id="city" placeholder="e.g. Phoenix"></label>
-        <label class="f">Street address <span class="opt">(optional — only if needed for scheduling)</span><input type="text" id="street" placeholder="1234 W Example Dr"></label>
-        <div class="note">We are located in Phoenix — pricing and service options may change based on the location of your property.</div>
+  <div style="max-width:760px;margin:0 auto">
+    <form class="formcard formcard-short" id="estimateForm" novalidate>
+      <h3>Request an Estimate</h3>
+      <p class="fsub">Free on-site estimate.</p>
+      <div class="frow">
+        <label class="f">Name<input type="text" name="name" required placeholder="John Doe" autocomplete="name"></label>
+        <label class="f">Phone<input type="tel" name="phone" required placeholder="(602) 367-8742" autocomplete="tel"></label>
       </div>
-    </div>
-
-    <div id="step4" class="wizcard" style="display:none">
-      <h2>Project photos</h2>
-      <p class="wsub">Optional but very helpful. Upload photos of the problem area or project site (up to 10).</p>
-      <label class="drop" style="margin-top:22px">
-        <b>Click to upload photos</b>
-        <small>JPG, PNG up to 10 images</small>
-        <input type="file" id="photoInput" accept="image/png,image/jpeg" multiple style="display:none">
-      </label>
-      <p id="photoCount" style="margin-top:10px;font-weight:600;color:var(--green)"></p>
-      <div class="note">Photos are attached to your request and reviewed by the Lopez team. They are never published without your permission.</div>
-    </div>
-
-    <div id="step5" class="wizcard" style="display:none">
-      <h2>When would you like this done?</h2>
-      <p class="wsub">Pick the option that best fits your schedule.</p>
-      <div class="pills"><button type="button" class="pillbtn" onclick="selPill(this,'timeline','As soon as possible')">As soon as possible</button><button type="button" class="pillbtn" onclick="selPill(this,'timeline','Within two weeks')">Within two weeks</button><button type="button" class="pillbtn" onclick="selPill(this,'timeline','Within a month')">Within a month</button><button type="button" class="pillbtn" onclick="selPill(this,'timeline','Planning ahead')">Planning ahead</button><button type="button" class="pillbtn" onclick="selPill(this,'timeline','Not sure yet')">Not sure yet</button></div>
-    </div>
-
-    <div id="step6" class="wizcard" style="display:none">
-      <h2>What's your budget preference?</h2>
-      <p class="wsub">This is a comfort range to guide our proposal — not official Lopez pricing. Final pricing is always subject to site inspection and approval.</p>
-      <div class="pills"><button type="button" class="pillbtn" onclick="selPill(this,'budget','Under $500')">Under $500</button><button type="button" class="pillbtn" onclick="selPill(this,'budget','$500 – $1,500')">$500 – $1,500</button><button type="button" class="pillbtn" onclick="selPill(this,'budget','$1,500 – $5,000')">$1,500 – $5,000</button><button type="button" class="pillbtn" onclick="selPill(this,'budget','$5,000+')">$5,000+</button><button type="button" class="pillbtn" onclick="selPill(this,'budget','Prefer owner review')">Prefer owner review</button></div>
-    </div>
-
-    <div id="step7" class="wizcard" style="display:none">
-      <h2>How can we reach you?</h2>
-      <p class="wsub">We'll only use this to follow up about your project.</p>
-      <div style="margin-top:20px">
-        <div class="frow">
-          <label class="f">Full name <span style="color:#b3261e">*</span><input type="text" id="cname" autocomplete="name"></label>
-          <label class="f">Mobile phone <span style="color:#b3261e">*</span><input type="tel" id="cphone" placeholder="(602) 367-8742" autocomplete="tel"></label>
-        </div>
-        <label class="f">Email <span style="color:#b3261e">*</span><input type="email" id="cemail" placeholder="lopezlandscaping2010@hotmail.com" autocomplete="email"></label>
-        <label class="f" style="margin-bottom:6px">Preferred contact method</label>
-        <div class="pills" style="margin-top:6px">
-          <button type="button" class="pillbtn" onclick="selPill(this,'contactMethod','Phone')">Phone</button>
-          <button type="button" class="pillbtn" onclick="selPill(this,'contactMethod','Email')">Email</button>
-          <button type="button" class="pillbtn" onclick="selPill(this,'contactMethod','Text')">Text</button>
-        </div>
-        <label class="f" style="margin-top:16px">Best time to call<select id="cbtime"><option value="">Select One</option><option>Morning (8am–12pm)</option><option>Afternoon (12pm–5pm)</option><option>Evening (5pm–8pm)</option></select></label>
-        <label class="f">Additional notes <span class="opt">(optional)</span><textarea id="cnotes" rows="3" placeholder="Anything else we should know?"></textarea></label>
-        <label style="display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--mut);background:var(--soft);border-radius:12px;padding:14px 16px"><input type="checkbox" id="csms" checked style="margin-top:3px;width:auto"> <span>I agree to receive text message updates about my estimate request from Lopez Irrigation &amp; Landscaping LLC.</span></label>
-        <div class="note">We'll follow up with your estimate within 24 hours.</div>
+      <label class="f">Service needed<select name="service" required><option>Sprinkler Repair & Valves</option><option>Irrigation & Drip Installation</option><option>Irrigation Leak Detection</option><option>Tree Trimming & Removal</option><option>Landscape Maintenance</option><option>Artificial Turf Installation</option><option>Pavers & Walkways</option><option>Lawn Care</option><option>Palm & Tree Care</option><option>Yard Cleanup</option><option>Gravel & Desert Landscaping</option></select></label>
+      <label class="f">Message<textarea name="message" rows="2" placeholder="Describe the issue or project…"></textarea></label>
+      <button class="submit" type="submit">Request My Estimate</button>
+      <p class="fine">Or call us directly: <a href="tel:+16023678742">(602) 367-8742</a></p>
+      <div class="done" id="estimateDone" hidden>
+        <h4>Request received</h4>
+        <p>Thank you — the Lopez team will follow up within 24 hours to schedule your free on-site estimate. Need help sooner? Call or text <a href="tel:+16023678742">(602) 367-8742</a>.</p>
       </div>
-    </div>
-
-    <div id="step8" class="wizcard" style="display:none">
-      <h2>Review &amp; submit</h2>
-      <p class="wsub">Confirm your details look right, then send your request to the Lopez team.</p>
-      <div id="reviewHost" style="margin-top:14px"></div>
-      <div class="note">Your request will be reviewed by the Lopez team. If owner-approved pricing is available for your service, a preliminary estimate range will display; otherwise you'll receive a personalized estimate after review. Final pricing is always subject to site inspection and approval.</div>
-    </div>
-
-    <p class="err" id="wizErr"></p>
-    <div class="wiznav">
-      <button type="button" class="btn btn-outline" id="backBtn" onclick="prevStep()" style="visibility:hidden">&larr; Back</button>
-      <button type="button" class="btn btn-dark" id="nextBtn" onclick="nextStep()">Continue &rarr;</button>
-    </div>
-  </div>
-
-  <div class="wiz" id="wizDone" style="display:none">
-    <div class="wizcard" style="text-align:center">
-      <h2>Request received</h2>
-      <p class="wsub" style="max-width:52ch;margin-left:auto;margin-right:auto">Thank you — your request has been received. The Lopez team will review your project and follow up within 24 hours with your personalized estimate. Final pricing is subject to site inspection and approval.</p>
-      <p style="margin-top:20px"><a class="btn btn-dark" href="tel:+16023678742">Call (602) 367-8742</a> <a class="btn btn-outline" href="sms:+16023678742">Text Now</a></p>
-    </div>
+    </form>
   </div>
 </div></section>
 
@@ -420,175 +336,7 @@ footer p{font-size:14.5px;line-height:1.65;color:#b9cbb2}
 </footer>
 
 <script>
-var state = {services: [], timeline: "", budget: "", photos: 0};
-var SVC = {
-  sprinkler: {label: "Sprinkler Repair"},
-  irrigation: {label: "Irrigation & Drip Installation"},
-  leak: {label: "Leak Detection"},
-  tree: {label: "Tree Trimming"},
-  landscape: {label: "Landscape Maintenance"},
-  turf: {label: "Artificial Turf"}
-};
-var stepNames = {1:"Service",2:"Project Details",3:"Location",4:"Photos",5:"Timeline",6:"Budget",7:"Contact",8:"Review & Submit"};
-var pct = {1:13,2:25,3:38,4:50,5:63,6:75,7:88,8:100};
-var cur = 1;
-
-function showStep(n){
-  cur = n;
-  for (var i = 1; i <= 8; i++){ document.getElementById('step' + i).style.display = (i === n ? 'block' : 'none'); }
-  document.getElementById('wizMeta').textContent = 'Step ' + n + ' of 8 \u2014 ' + pct[n] + '%';
-  document.getElementById('wizPct').textContent = '';
-  document.getElementById('wizBar').style.width = pct[n] + '%';
-  document.getElementById('backBtn').style.visibility = (n === 1 ? 'hidden' : 'visible');
-  document.getElementById('nextBtn').innerHTML = (n === 8 ? 'Submit My Request' : 'Continue &rarr;');
-  document.getElementById('nextBtn').className = (n === 8 ? 'btn btn-lime' : 'btn btn-dark');
-  document.getElementById('wizErr').style.display = 'none';
-  if (n === 2) buildDetails();
-  if (n === 8) buildReview();
-  window.scrollTo({top: 0, behavior: 'smooth'});
-}
-function err(msg){
-  var e = document.getElementById('wizErr');
-  e.textContent = msg; e.style.display = 'block';
-  e.scrollIntoView({behavior: 'smooth', block: 'nearest'});
-  return false;
-}
-function selectSvc(btn, key){
-  state.services = [key];
-  document.querySelectorAll('#step1 .svcopt').forEach(function(b){ b.classList.remove('sel'); });
-  btn.classList.add('sel');
-}
-function selPill(btn, group, val){
-  var sibs = btn.parentElement.querySelectorAll('.pillbtn');
-  sibs.forEach(function(b){ b.classList.remove('sel'); });
-  btn.classList.add('sel');
-  state[group] = val;
-}
-function field(label, inner, req){
-  return '<label class="f">' + label + (req ? ' <span style="color:#b3261e">*</span>' : '') + inner + '</label>';
-}
-function selField(name, label, opts, req){
-  var o = '<option value="">Select...</option>' + opts.map(function(x){ return '<option>' + x + '</option>'; }).join('');
-  return field(label, '<select name="' + name + '" data-req="' + (req ? '1' : '') + '">' + o + '</select>', req);
-}
-function selFieldOne(name, label, opts, req){
-  var o = '<option value="">Select One</option>' + opts.map(function(x){ return '<option>' + x + '</option>'; }).join('');
-  return field(label, '<select name="' + name + '" data-req="' + (req ? '1' : '') + '">' + o + '</select>', req);
-}
-function selBranchPill(btn, name, val){
-  var sibs = btn.parentElement.querySelectorAll('.pillbtn');
-  sibs.forEach(function(b){ b.classList.remove('sel'); });
-  btn.classList.add('sel');
-  var host = btn.closest('.branch');
-  var inp = host ? host.querySelector('[name="' + name + '"]') : null;
-  if (inp) inp.value = val;
-}
-function pillField(name, label, opts, req){
-  var btns = opts.map(function(x){ return '<button type="button" class="pillbtn" onclick="selBranchPill(this,\'' + name + '\',\'' + x + '\')">' + x + '</button>'; }).join('');
-  return '<label class="f" style="margin-bottom:6px">' + label + (req ? ' <span style="color:#b3261e">*</span>' : '') + '</label><div class="pills" style="margin-top:0;margin-bottom:14px">' + btns + '</div><input type="hidden" name="' + name + '" data-req="' + (req ? '1' : '') + '" value="">';
-}
-function txtField(name, label, ph, req){
-  return field(label, '<input type="text" name="' + name + '" placeholder="' + ph + '" data-req="' + (req ? '1' : '') + '">', req);
-}
-function areaField(name, label, ph, req){
-  return field(label, '<textarea name="' + name + '" rows="3" placeholder="' + ph + '" data-req="' + (req ? '1' : '') + '"></textarea>', req);
-}
-var YNU = ['Yes', 'No', 'Not sure'];
-function genericBranch(key){
-  var L = SVC[key].label;
-  return selField(key + '_type', 'New installation or service visit?', ['New installation', 'Repair / service visit', 'Not sure'], false)
-    + areaField(key + '_problem', 'Describe the problem or project', 'Tell us what you are seeing or what you would like done', true)
-    + txtField(key + '_size', 'Approximate property / area size', 'e.g. 800 sq ft or front yard only', false)
-    + areaField(key + '_notes', 'Additional notes (optional)', 'Anything else we should know?', false);
-}
-function branchHTML(key){
-  var L = SVC[key].label;
-  var inner = '';
-  if (key === 'sprinkler'){
-    inner = selFieldOne('sp_type', 'New install or repair', ['New Install', 'Repair'], true)
-      + txtField('sp_problem', 'What is the problem?', 'My sprinklers are running but there are dry patches', true)
-      + selFieldOne('sp_zones', 'How many sprinkler zones do you have?', ['1–3 Zones', '4–6 Zones', '7–10 Zones', '10+ Zones', 'Not sure'], false)
-      + selFieldOne('sp_when', 'When did the problem start?', ['Today', 'Within the last week', 'Within the last month', 'More than a month ago'], false)
-      + selFieldOne('sp_size', 'Approximate property size', ['Small (&lt; 5,000 sq ft)', 'Medium (5,000–10,000 sq ft)', 'Large (&gt; 10,000 sq ft)', 'Commercial'], false)
-      + areaField('sp_notes', 'Additional notes', 'Anything else we should know about your system…', false);
-  } else if (key === 'turf'){
-    inner = pillField('tf_kind', 'Is this for a home or business?', ['Residential', 'Commercial'], true)
-      + txtField('tf_sqft', 'Approximate square footage', 'e.g., 500 sq ft', true)
-      + selFieldOne('tf_surface', 'What is the existing surface?', ['Grass', 'Dirt', 'Concrete', 'Gravel / Rock', 'Other'], true)
-      + selFieldOne('tf_removal', 'Do you need the old surface removed?', ['Yes', 'No', 'Not sure'], false)
-      + selFieldOne('tf_pets', 'Do you have pets or kids?', ['Pets', 'Kids', 'Both', 'Neither'], false)
-      + selFieldOne('tf_access', 'Access to the area', ['Side gate', 'Front access only', 'Through the house', 'Other'], false)
-      + selFieldOne('tf_window', 'When would you like the project completed?', ['Within the next month', 'Within the next 3 months', 'Within 6 months', 'There is no rush'], false)
-      + areaField('tf_notes', 'Additional notes', 'Anything else we should know about your turf project…', false);
-  } else {
-    inner = genericBranch(key);
-  }
-  var title = (key === 'sprinkler') ? 'Sprinkler Repair Details' : (key === 'turf') ? 'Artificial Turf Details' : L;
-  return '<div class="branch"><h3>' + title + '</h3>' + inner + '</div>';
-}
-function buildDetails(){
-  var host = document.getElementById('branchHost');
-  var keep = {};
-  host.querySelectorAll('[name]').forEach(function(el){ keep[el.name] = el.value; });
-  host.innerHTML = state.services.map(branchHTML).join('');
-  host.querySelectorAll('[name]').forEach(function(el){ if (keep[el.name] !== undefined) el.value = keep[el.name]; });
-  host.querySelectorAll('input[type=hidden][name]').forEach(function(el){
-    if (!el.value) return;
-    var branch = el.closest('.branch');
-    if (!branch) return;
-    branch.querySelectorAll('.pillbtn').forEach(function(b){ if (b.textContent === el.value) b.classList.add('sel'); });
-  });
-}
-function val(id){ var el = document.getElementById(id); return el ? el.value.trim() : ''; }
-function stepValid(n){
-  if (n === 1){ if (!state.services.length) return err('Please select at least one service to continue.'); }
-  if (n === 2){
-    var bad = null;
-    document.querySelectorAll('#branchHost [data-req="1"]').forEach(function(el){ if (!el.value.trim() && !bad) bad = el; });
-    if (bad){ bad.focus(); return err('Please complete the required project detail fields.'); }
-  }
-  if (n === 3){ if (!val('zip') || !val('city')) return err('ZIP code and city are required so we can confirm coverage.'); }
-  if (n === 5){ if (!state.timeline) return err('Please pick the timeline that best fits your schedule.'); }
-  if (n === 6){ if (!state.budget) return err('Please pick a budget preference, or choose Prefer owner review.'); }
-  if (n === 7){
-    if (!val('cname') || !val('cphone') || !val('cemail')) return err('Name, mobile phone, and email are required so we can follow up about your project.');
-    if (!state.contactMethod) return err('Please choose a preferred contact method.');
-  }
-  return true;
-}
-function nextStep(){
-  if (cur === 8){ submitWizard(); return; }
-  if (!stepValid(cur)) return;
-  showStep(cur + 1);
-}
-function prevStep(){ if (cur > 1) showStep(cur - 1); }
-function buildReview(){
-  function row(k, v){ return '<div class="reviewrow"><span class="k">' + k + '</span><span class="v">' + (v || '\u2014') + '</span></div>'; }
-  var names = state.services.map(function(k){ return SVC[k].label; }).join(', ');
-  var loc = [val('zip'), val('city')].filter(Boolean).join(' \u2022 ');
-  if (val('street')) loc += ' \u2022 ' + val('street');
-  var html = row('Services', names)
-    + row('Location', loc)
-    + row('Timeline', state.timeline)
-    + row('Budget', state.budget)
-    + row('Name', val('cname'))
-    + row('Phone', val('cphone'))
-    + row('Email', val('cemail'))
-    + row('Preferred Contact', state.contactMethod || '')
-    + row('Photos', state.photos + ' attached')
-    + row('SMS Consent', document.getElementById('csms').checked ? 'Yes' : 'No');
-  document.getElementById('reviewHost').innerHTML = html;
-}
-function submitWizard(){
-  document.getElementById('wizFlow').style.display = 'none';
-  document.getElementById('wizDone').style.display = 'block';
-  window.scrollTo({top: 0, behavior: 'smooth'});
-}
-document.getElementById('photoInput').addEventListener('change', function(){
-  state.photos = Math.min(this.files.length, 10);
-  document.getElementById('photoCount').textContent = state.photos ? state.photos + ' photo(s) selected' : '';
-});
-showStep(1);
+document.getElementById('estimateForm').addEventListener('submit',function(e){e.preventDefault();var f=e.target;if(!f.checkValidity()){f.reportValidity();return;}f.querySelector('.submit').textContent='Request Received';document.getElementById('estimateDone').hidden=false;document.getElementById('estimateDone').scrollIntoView({behavior:'smooth',block:'nearest'});});
 </script>
 
 <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6af559e0d3e85f5aa246b5c7"></script>
