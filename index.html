@@ -131,7 +131,8 @@ nav a{color:#fff;font-size:12.5px;font-weight:600;letter-spacing:.16em;text-tran
 /* ===== g) category strip ===== */
 .strip{display:grid;grid-template-columns:repeat(4,1fr);height:420px}
 .strip figure{position:relative;overflow:hidden}
-.strip figcaption{position:absolute;top:20px;left:22px;color:#fff;font-family:Fraunces,serif;font-size:22px;font-weight:550;text-shadow:0 2px 12px rgba(20,26,18,.5)}
+.strip figure::before{content:"";position:absolute;top:0;left:0;right:0;height:110px;background:linear-gradient(rgba(20,26,18,.52),rgba(20,26,18,0));z-index:1;pointer-events:none}
+.strip figcaption{position:absolute;top:20px;left:22px;color:#fff;font-family:Fraunces,serif;font-size:22px;font-weight:550;text-shadow:0 2px 12px rgba(20,26,18,.5);z-index:2}
 /* ===== h) from the field ===== */
 .field{padding:96px 0}
 .field .head{text-align:center;margin-bottom:44px}
@@ -365,10 +366,10 @@ footer p{font-size:14px;line-height:1.65;color:#e3e6cd}
 
 <!-- g) CATEGORY STRIP -->
 <section class="strip" id="work">
-  <figure class="rv asu"><img src="hero-lawn.jpg" alt="Lawn"><figcaption>Lawns</figcaption></figure>
-  <figure class="rv asu" style="animation-delay:.1s"><img src="pavers.jpg" alt="Pavers"><figcaption>Pavers</figcaption></figure>
-  <figure class="rv asu" style="animation-delay:.2s"><img src="controller.jpg" alt="Irrigation"><figcaption>Irrigation</figcaption></figure>
-  <figure class="rv asu" style="animation-delay:.3s"><img src="climber.jpg" alt="Palm care"><figcaption>Palm &amp; Tree Care</figcaption></figure>
+  <figure class="rv asu"><img src="fin-side-turf.jpg" alt="Finished turf lawn"><figcaption>Lawns</figcaption></figure>
+  <figure class="rv asu" style="animation-delay:.1s"><img src="fin-pavers.jpg" alt="Finished paver walkway"><figcaption>Pavers</figcaption></figure>
+  <figure class="rv asu" style="animation-delay:.2s"><img src="fin-sprinklers.jpg" alt="Sprinklers running on a finished yard"><figcaption>Irrigation</figcaption></figure>
+  <figure class="rv asu" style="animation-delay:.3s"><img src="fin-palm.jpg" alt="Finished palm tree trimming"><figcaption>Palm &amp; Tree Care</figcaption></figure>
 </section>
 
 <!-- h) FROM THE FIELD -->
