@@ -1,0 +1,24 @@
+# Lopez Irrigation & Landscaping LLC
+
+> Irrigation and landscaping company in Phoenix, Arizona, in business since 2010. Rated 5.0 stars across 40 Google reviews. Free on-site estimates.
+
+## Business facts
+- Name: Lopez Irrigation & Landscaping LLC
+- Address: 1543 W North Ln, Phoenix, AZ 85021
+- Phone (call or text): (602) 367-8742
+- Email: lopezlandscaping2010@hotmail.com
+- Hours: Monday-Friday 5:00 AM-5:00 PM, Saturday 6:30 AM-5:00 PM, closed Sunday
+- Founded: 2010
+
+## Services
+- Irrigation installation and repair
+- Sprinkler systems
+- Landscape maintenance
+- Artificial turf installation
+- Tree trimming and clean-ups
+- General landscaping
+
+## Links
+- Website: https://demo-lopez-irrigation.vercel.app/
+- Facebook: https://www.facebook.com/lopez.i.landscaping
+- Instagram: https://www.instagram.com/lopez_irrigation_llc
