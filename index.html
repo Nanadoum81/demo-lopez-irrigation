@@ -249,6 +249,23 @@ footer p{font-size:14px;line-height:1.65;color:#e3e6cd}
 .stickybar .call{background:var(--char);color:#fff}
 .stickybar .text{background:var(--olive);color:#fff}
 @media(max-width:760px){.stickybar{display:flex}body{padding-bottom:72px}}
+
+/* ===== Finished Work gallery ===== */
+.gal-sec{background:var(--paper);padding:96px 0 84px}
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:44px}
+.gtile{position:relative;border:0;padding:0;background:none;cursor:zoom-in;border-radius:14px;overflow:hidden;display:block;width:100%;aspect-ratio:4/3}
+.gtile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.gtile:hover img{transform:scale(1.045)}
+.gtile.big{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+.gtile.tall{grid-row:span 2;aspect-ratio:auto}
+.gtile figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 16px 12px;text-align:left;color:#fff;font-size:13.5px;font-weight:600;letter-spacing:.02em;background:linear-gradient(to top,rgba(10,16,9,.72),rgba(10,16,9,0));pointer-events:none}
+.gtile figcaption span{display:block;font-weight:400;font-size:12px;opacity:.85}
+@media(max-width:820px){.gal{grid-template-columns:repeat(2,1fr);gap:10px}.gtile.big{grid-column:span 2}}
+.lb{position:fixed;inset:0;background:rgba(8,12,8,.93);display:none;align-items:center;justify-content:center;z-index:200;padding:22px}
+.lb.on{display:flex}
+.lb img{max-width:min(1060px,94vw);max-height:84vh;border-radius:10px;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.lb .cap{position:absolute;bottom:26px;left:0;right:0;text-align:center;color:#eef3e6;font-size:15px;font-weight:600}
+.lb .x{position:absolute;top:18px;right:22px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08);color:#fff;font-size:20px;cursor:pointer}
 </style>
 </head>
 <body>
@@ -263,7 +280,7 @@ footer p{font-size:14px;line-height:1.65;color:#e3e6cd}
   </div>
   <header><div class="wrap hbar">
     <div class="logo"><span class="logoplate"><img src="logo.png" alt="Lopez Irrigation &amp; Landscaping LLC"></span></div>
-    <nav><a href="#about">About</a><a href="#services">Services</a><a href="#work">Projects</a><a href="#reviews">Reviews</a><a href="#faq">FAQ</a></nav>
+    <nav><a href="#about">About</a><a href="#services">Services</a><a href="#gallery">Projects</a><a href="#reviews">Reviews</a><a href="#faq">FAQ</a></nav>
     <div class="hbtns"><a class="hbtn" href="sms:+16023678742">Text Now</a><a class="hbtn dark" href="#estimate">Request an Estimate</a></div>
   </div></header>
   <div class="inner"><div class="wrap"><div class="block">
@@ -355,6 +372,26 @@ footer p{font-size:14px;line-height:1.65;color:#e3e6cd}
 </section>
 
 <!-- h) FROM THE FIELD -->
+
+<!-- FINISHED WORK GALLERY -->
+<section class="gal-sec" id="gallery"><div class="wrap">
+  <div class="head rv au"><div class="eyebrow">Finished Work</div><h2>Real yards, finished right</h2><p style="max-width:620px;margin:14px auto 0">Actual Lopez projects from across the Valley — pavers, turf, desert yards, and gardens, photographed on the day the work was done.</p></div>
+  <div class="gal">
+    <button class="gtile big rv au" data-cap="Landscape garden with bridge &amp; vine arch — Garden landscapes"><img src="fin-garden.jpg" alt="Landscape garden with bridge &amp; vine arch" loading="lazy"><figcaption>Landscape garden with bridge &amp; vine arch<span>Garden landscapes</span></figcaption></button>
+    <button class="gtile  rv au" data-cap="Artificial turf &amp; patio — Scottsdale"><img src="fin-turf.jpg" alt="Artificial turf &amp; patio" loading="lazy"><figcaption>Artificial turf &amp; patio<span>Scottsdale</span></figcaption></button>
+    <button class="gtile tall rv au" data-cap="Paver walkway — Phoenix"><img src="fin-pavers.jpg" alt="Paver walkway" loading="lazy"><figcaption>Paver walkway<span>Phoenix</span></figcaption></button>
+    <button class="gtile  rv au" data-cap="Turf, brick patio &amp; sprinklers running — Scottsdale"><img src="fin-sprinklers.jpg" alt="Turf, brick patio &amp; sprinklers running" loading="lazy"><figcaption>Turf, brick patio &amp; sprinklers running<span>Scottsdale</span></figcaption></button>
+    <button class="gtile tall rv au" data-cap="Palm &amp; finished desert gravel yard — Phoenix"><img src="fin-palm.jpg" alt="Palm &amp; finished desert gravel yard" loading="lazy"><figcaption>Palm &amp; finished desert gravel yard<span>Phoenix</span></figcaption></button>
+    <button class="gtile  rv au" data-cap="Lawn care under mature trees — Phoenix"><img src="fin-lawn.jpg" alt="Lawn care under mature trees" loading="lazy"><figcaption>Lawn care under mature trees<span>Phoenix</span></figcaption></button>
+    <button class="gtile  rv au" data-cap="Gravel backyard, family-ready — North Phoenix"><img src="fin-gravel-play.jpg" alt="Gravel backyard, family-ready" loading="lazy"><figcaption>Gravel backyard, family-ready<span>North Phoenix</span></figcaption></button>
+    <button class="gtile  rv au" data-cap="Turf side yard with brick edging — Scottsdale"><img src="fin-side-turf.jpg" alt="Turf side yard with brick edging" loading="lazy"><figcaption>Turf side yard with brick edging<span>Scottsdale</span></figcaption></button>
+    <button class="gtile  rv au" data-cap="Garden path &amp; wooden bridge — Phoenix"><img src="fin-bridge.jpg" alt="Garden path &amp; wooden bridge" loading="lazy"><figcaption>Garden path &amp; wooden bridge<span>Phoenix</span></figcaption></button>
+    <button class="gtile  rv au" data-cap="Full gravel backyard finish — Phoenix"><img src="fin-gravel-wide.jpg" alt="Full gravel backyard finish" loading="lazy"><figcaption>Full gravel backyard finish<span>Phoenix</span></figcaption></button>
+    <button class="gtile tall rv au" data-cap="Brick walkway &amp; gate — Phoenix"><img src="fin-walk-gate.jpg" alt="Brick walkway &amp; gate" loading="lazy"><figcaption>Brick walkway &amp; gate<span>Phoenix</span></figcaption></button>
+    <button class="gtile tall rv au" data-cap="Paver walkway, second view — Phoenix"><img src="fin-pavers-b.jpg" alt="Paver walkway, second view" loading="lazy"><figcaption>Paver walkway, second view<span>Phoenix</span></figcaption></button>
+  </div>
+</div></section>
+
 <section class="field"><div class="wrap">
   <div class="head rv au"><div class="eyebrow">From the Field</div><h2>Notes from Phoenix yards</h2></div>
   <div class="fcards">
@@ -479,5 +516,15 @@ footer p{font-size:14px;line-height:1.65;color:#e3e6cd}
 })();
 </script>
 <div class="stickybar"><a class="call" href="tel:+16023678742">Call Lopez</a><a class="text" href="sms:+16023678742">Text for a Free Estimate</a></div>
+
+<div class="lb" id="lb" role="dialog" aria-label="Photo viewer"><button class="x" id="lbx" aria-label="Close">&times;</button><img id="lbimg" src="" alt=""><div class="cap" id="lbcap"></div></div>
+<script>
+(function(){var lb=document.getElementById('lb'),im=document.getElementById('lbimg'),cap=document.getElementById('lbcap');
+document.querySelectorAll('.gtile').forEach(function(t){t.addEventListener('click',function(){im.src=t.querySelector('img').src;cap.textContent=t.getAttribute('data-cap');lb.classList.add('on');document.body.style.overflow='hidden';});});
+function close(){lb.classList.remove('on');document.body.style.overflow='';}
+document.getElementById('lbx').addEventListener('click',close);
+lb.addEventListener('click',function(e){if(e.target===lb)close();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});})();
+</script>
 </body>
 </html>
