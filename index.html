@@ -103,7 +103,7 @@ footer p{font-size:14.5px;line-height:1.65;color:#b9cbb2}
 .hero .slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease}
 .hero .slides img.on{opacity:1}
 .hero .shade{position:absolute;inset:0;background:linear-gradient(100deg,rgba(6,32,20,.88) 30%,rgba(6,32,20,.45) 62%,rgba(6,32,20,.25))}
-.hero .inner{position:relative;z-index:2;padding:72px 0 84px;display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:start}
+.hero .inner{position:relative;z-index:2;padding:72px 0 84px;display:grid;grid-template-columns:.95fr 1.05fr;gap:48px;align-items:start}
 .hero h1{color:#fff;font-size:clamp(38px,4.6vw,60px);font-weight:800}
 .hero h1 .dot{color:var(--lime)}
 .hero .sub{color:#e2ecdc;font-size:17.5px;margin-top:18px;max-width:52ch}
@@ -115,6 +115,7 @@ footer p{font-size:14.5px;line-height:1.65;color:#b9cbb2}
 .formcard{background:#fff;color:var(--ink);border-radius:16px;padding:28px;box-shadow:0 24px 60px rgba(0,0,0,.35)}
 .formcard h3{font-size:22px;font-weight:800;margin-bottom:4px}
 .formcard .fsub{color:var(--mut);font-size:14px;margin-bottom:16px}
+.formcard-short textarea{resize:vertical}
 .frow{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
 .radio-row{display:flex;gap:10px;margin:4px 0 14px}
 .radio-pill{flex:1}
@@ -286,22 +287,15 @@ footer p{font-size:14.5px;line-height:1.65;color:#b9cbb2}
       </div>
     </div>
 
-    <form class="formcard" id="heroForm" novalidate>
+    <form class="formcard formcard-short" id="heroForm" novalidate>
+      <h3>Request an Estimate</h3>
+      <p class="fsub">Free on-site estimate.</p>
       <div class="frow">
-        <label class="f">First name<input type="text" name="fname" required placeholder="John"></label>
-        <label class="f">Last name<input type="text" name="lname" required placeholder="Doe"></label>
+        <label class="f">Name<input type="text" name="name" required placeholder="John Doe" autocomplete="name"></label>
+        <label class="f">Phone<input type="tel" name="phone" required placeholder="(602) 367-8742" autocomplete="tel"></label>
       </div>
-      <label class="f">Phone<input type="tel" name="phone" required placeholder="(602) 367-8742"></label>
-      <label class="f">Email (Optional)<input type="email" name="email" placeholder="lopezlandscaping2010@hotmail.com"></label>
       <label class="f">Service needed<select name="service" required><option>Sprinkler Repair & Valves</option><option>Irrigation & Drip Installation</option><option>Irrigation Leak Detection</option><option>Tree Trimming & Removal</option><option>Landscape Maintenance</option><option>Artificial Turf Installation</option><option>Pavers & Walkways</option><option>Lawn Care</option><option>Palm & Tree Care</option><option>Yard Cleanup</option><option>Gravel & Desert Landscaping</option></select></label>
-      <label class="f">Property address, city & ZIP<input type="text" name="address" placeholder="1234 N Main St, Phoenix, AZ 85021"></label>
-      <label class="f">Brief description…<textarea name="details" rows="3" placeholder="Describe the issue or project…"></textarea></label>
-      <label class="f">Add yard photos <span class="opt">JPG/PNG up to 10 files</span><input type="file" name="photos" accept="image/*" multiple></label>
-      <label class="f" style="margin-bottom:6px">Preferred contact:</label>
-      <div class="radio-row">
-        <label class="radio-pill"><input type="radio" name="contact" value="Call" checked><span>Call</span></label>
-        <label class="radio-pill"><input type="radio" name="contact" value="Text"><span>Text</span></label>
-      </div>
+      <label class="f">Message<textarea name="message" rows="2" placeholder="Describe the issue or project…"></textarea></label>
       <button class="submit" type="submit">Request My Estimate</button>
       <p class="fine">Or call us directly: <a href="tel:+16023678742">(602) 367-8742</a></p>
       <div class="done" id="heroDone" hidden>
@@ -365,6 +359,10 @@ footer p{font-size:14.5px;line-height:1.65;color:#b9cbb2}
     <div class="gcard"><img src="/assets/img-lawn.png" alt="Maintained residential landscape in Phoenix"><div class="cap">Maintained residential landscape in Phoenix</div></div>
     <div class="gcard"><img src="/assets/img-turf.png" alt="Artificial Turf Installation"><div class="cap">Artificial Turf Installation<small>Completed artificial turf installation in a Phoenix yard</small></div></div>
     <div class="gcard"><img src="/assets/img-services-hero.png" alt="Completed landscaping project in Phoenix"><div class="cap">Completed landscaping project in Phoenix</div></div>
+    <div class="gcard"><img src="/assets/work-tree-trimming.jpg" alt="Lopez crew trimming trees at a Phoenix home"><div class="cap">Lopez crew trimming trees at a Phoenix home</div></div>
+    <div class="gcard"><img src="/assets/work-front-lawn.jpg" alt="Fresh front lawn installed by Lopez Irrigation & Landscaping"><div class="cap">Fresh front lawn installed by Lopez Irrigation &amp; Landscaping</div></div>
+    <div class="gcard"><img src="/assets/work-turf-yard.jpg" alt="Artificial turf backyard installed in Phoenix"><div class="cap">Artificial turf backyard installed in Phoenix</div></div>
+    <div class="gcard"><img src="/assets/work-garden.jpg" alt="Garden landscape with turf and rock beds in Phoenix"><div class="cap">Garden landscape with turf and rock beds in Phoenix</div></div>
   </div>
   <p style="margin-top:26px"><a class="btn btn-dark" href="/projects/">View All Projects &rarr;</a></p>
 </div></section>
