@@ -17,3 +17,12 @@ div[id*="6af65b5190f7860d2918cb6a"] {
   /* Chat bubble: ~20px from bottom, ~60px tall; 92px = one bubble + 12px gap. */
   bottom: 92px !important;
 }
+
+/* The voice widget is the second <chat-widget> element on the page (its
+   script is the second widget script in each page), and its host does not
+   expose the widget ID as an attribute, so it is also targeted by order.
+   A transform lifts the whole host, including its shadow DOM, up by one
+   bubble-height plus the gap, however the host itself is anchored. */
+chat-widget:last-of-type {
+  transform: translateY(-72px) !important;
+}
