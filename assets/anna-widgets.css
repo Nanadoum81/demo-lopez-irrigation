@@ -35,3 +35,10 @@ iframe[src*="leadconnectorhq"] { outline: 4px solid #00aa00 !important; }
 
 /* TEMPORARY PLUMBING PROBE - remove after confirming this stylesheet loads on the page. */
 body { border-top: 10px solid #ff0000 !important; }
+
+/* TEMP PROBE ROUND 2 - identify the launcher's element. */
+iframe { outline: 4px solid #00ff00 !important; }
+ion-fab, ion-fab-button { outline: 4px solid #ffff00 !important; }
+[class*="chat-widget"] { outline: 4px solid #ff00ff !important; }
+[id*="chat-widget"] { outline: 4px solid #00ffff !important; }
+[class*="launcher"], [id*="launcher"] { outline: 4px solid #ff8800 !important; }
