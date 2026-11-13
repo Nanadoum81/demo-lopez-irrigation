@@ -32,3 +32,6 @@ chat-widget { outline: 4px solid #ff0000 !important; }
 div[data-chat-widget] { outline: 4px solid #0000ff !important; }
 iframe[src*="leadconnectorhq"] { outline: 4px solid #00aa00 !important; }
 *[data-loader-instance-id] { outline: 4px solid #ff8800 !important; }
+
+/* TEMPORARY PLUMBING PROBE - remove after confirming this stylesheet loads on the page. */
+body { border-top: 10px solid #ff0000 !important; }
