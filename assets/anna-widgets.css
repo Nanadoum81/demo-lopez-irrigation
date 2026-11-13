@@ -26,3 +26,9 @@ div[id*="6af65b5190f7860d2918cb6a"] {
 chat-widget:last-of-type {
   transform: translateY(-72px) !important;
 }
+
+/* TEMPORARY DIAGNOSTIC OUTLINES - to be removed after identifying the live widget element. */
+chat-widget { outline: 4px solid #ff0000 !important; }
+div[data-chat-widget] { outline: 4px solid #0000ff !important; }
+iframe[src*="leadconnectorhq"] { outline: 4px solid #00aa00 !important; }
+*[data-loader-instance-id] { outline: 4px solid #ff8800 !important; }
