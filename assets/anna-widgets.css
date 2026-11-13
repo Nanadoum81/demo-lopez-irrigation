@@ -1,49 +1,22 @@
-/* Anna widgets: stack both launchers in the bottom-right corner.
-   CHAT widget (6af559e0d3e85f5aa246b5c7) stays at the bottom-right.
-   VOICE widget (6af65b5190f7860d2918cb6a) is lifted above it so its
-   "Talk to us!" button sits above the chat bubble instead of covering it.
-   Only the voice widget is targeted, by its widget ID.
-   The widgets are <chat-widget> custom elements (HighLevel's chat-widget
-   app), so the rule targets the voice widget's host element by its
-   widget-id attribute; iframe/div forms are kept as a fallback. */
-chat-widget[widget-id="6af65b5190f7860d2918cb6a"],
-chat-widget[data-widget-id="6af65b5190f7860d2918cb6a"],
-chat-widget[data-loader-instance-id="6af65b5190f7860d2918cb6a"],
-iframe[src*="6af65b5190f7860d2918cb6a"],
-iframe[data-widget-id="6af65b5190f7860d2918cb6a"],
-iframe[id*="6af65b5190f7860d2918cb6a"],
-div[data-widget-id="6af65b5190f7860d2918cb6a"],
-div[id*="6af65b5190f7860d2918cb6a"] {
-  /* Chat bubble: ~20px from bottom, ~60px tall; 92px = one bubble + 12px gap. */
-  bottom: 92px !important;
+/* Anna widgets (Lopez demo) - stack the two launchers in one bottom-right unit.
+ *
+ * The Anna CHAT widget (6af559e0d3e85f5aa246b5c7) stays at the bottom-right
+ * corner. The Anna VOICE widget (6af65b5190f7860d2918cb6a) sits directly
+ * above it, one bubble height plus a small gap higher.
+ *
+ * Why this is done with a data attribute: each widget is a <chat-widget>
+ * web component whose launcher lives in shadow DOM, and its widget id is
+ * a JavaScript property (widgetId) on the host - not an HTML attribute -
+ * so CSS alone cannot tell the voice host from the chat host, and the two
+ * hosts append in a load-order race, so DOM order is not reliable either.
+ * assets/anna-widgets.js marks the voice host with data-voice-widget
+ * (by matching its widgetId property); this rule lifts only that host.
+ */
+
+/* Lift ONLY the voice widget's launcher above the chat bubble. */
+chat-widget[data-voice-widget] {
+  position: fixed !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  transform: translateY(-76px) !important;
 }
-
-/* The voice widget is the second <chat-widget> element on the page (its
-   script is the second widget script in each page), and its host does not
-   expose the widget ID as an attribute, so it is also targeted by order.
-   A transform lifts the whole host, including its shadow DOM, up by one
-   bubble-height plus the gap, however the host itself is anchored. */
-chat-widget:last-of-type {
-  transform: translateY(-72px) !important;
-}
-
-/* TEMPORARY DIAGNOSTIC OUTLINES - to be removed after identifying the live widget element. */
-chat-widget { outline: 4px solid #ff0000 !important; }
-div[data-chat-widget] { outline: 4px solid #0000ff !important; }
-iframe[src*="leadconnectorhq"] { outline: 4px solid #00aa00 !important; }
-*[data-loader-instance-id] { outline: 4px solid #ff8800 !important; }
-
-/* TEMPORARY PLUMBING PROBE - remove after confirming this stylesheet loads on the page. */
-body { border-top: 10px solid #ff0000 !important; }
-
-/* TEMP PROBE ROUND 2 - identify the launcher's element. */
-iframe { outline: 4px solid #00ff00 !important; }
-ion-fab, ion-fab-button { outline: 4px solid #ffff00 !important; }
-[class*="chat-widget"] { outline: 4px solid #ff00ff !important; }
-[id*="chat-widget"] { outline: 4px solid #00ffff !important; }
-[class*="launcher"], [id*="launcher"] { outline: 4px solid #ff8800 !important; }
-
-/* TEMP PROBE ROUND 3 - locate the widget host via script anchors / body end. */
-script[data-widget-id="6af65b5190f7860d2918cb6a"] + * { outline: 4px solid #ffff00 !important; }
-body > *:nth-last-child(2) { outline: 4px solid #ff1493 !important; }
-body > *:last-child { outline: 4px solid #00ff7f !important; }
