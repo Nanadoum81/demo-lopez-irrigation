@@ -1,0 +1,14 @@
+/* Anna widgets: stack both launchers in the bottom-right corner.
+   CHAT widget (6af559e0d3e85f5aa246b5c7) stays at the bottom-right.
+   VOICE widget (6af65b5190f7860d2918cb6a) is lifted above it so its
+   "Talk to us!" button sits above the chat bubble instead of covering it.
+   Only the voice widget is targeted, by its widget ID in the iframe's
+   src / data / id attributes. */
+iframe[src*="6af65b5190f7860d2918cb6a"],
+iframe[data-widget-id="6af65b5190f7860d2918cb6a"],
+iframe[id*="6af65b5190f7860d2918cb6a"],
+div[data-widget-id="6af65b5190f7860d2918cb6a"],
+div[id*="6af65b5190f7860d2918cb6a"] {
+  /* Chat bubble: ~20px from bottom, ~60px tall; 92px = one bubble + 12px gap. */
+  bottom: 92px !important;
+}
